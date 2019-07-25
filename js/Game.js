@@ -16,12 +16,40 @@ class Game {
   };
 
   getRandomPhrase() {
-    let randomIndex = Math.floor(Math.random()*this.phrases.length);
-    return this.phrases[randomIndex]; 
+    let randomIndex = Math.floor(Math.random() * this.phrases.length);
+    return this.phrases[randomIndex];
   }
-
-  
   startGame() {
     $('#overlay').hide();
   }
+
+  // handleInteraction() {
+
+  checkForWin() {
+    if ($('#scoreboard') === 0) {
+      return true;
+    } else {
+      return false;
+    };
+  }// 
+  removeLife() {
+    if(letter is wrong -){
+      remove a heart-
+    }
+    
+    $('#qwerty').on({
+      'click': function(){
+          $('images/liveHeart.png').attr('src','images/lostHeart.png');
+      }
+      
+  });
+  }
+  gameOver(gameWon) {
+    if ($('#scoreboard') === 0) {
+      return false;
+    } else {
+      return true;
+    }
+
+  };
 };

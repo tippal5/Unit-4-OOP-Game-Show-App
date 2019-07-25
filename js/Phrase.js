@@ -20,4 +20,17 @@ class Phrase {
         }
 
     };
+    checkLetter(letter) {
+        return this.phrase.length(letter);
+    }
+    showMatchedLetter(letter) {
+        let alpha = $('#phrase li');
+        for(l=0; l < alpha.length; l++) {
+          if(alpha[l].textContent.toLowerCase() == letter.toLowerCase())
+            $(alpha[l]).removeClass('hide').addClass('show');
+        }
+        
+        
+    };
+
 };
