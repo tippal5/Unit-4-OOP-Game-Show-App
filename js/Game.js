@@ -21,6 +21,8 @@ class Game {
   }
   startGame() {
     $('#overlay').hide();
+    this.activePhrase = this.getRandomPhrase();
+    this.activePhrase.addPhraseToDisplay() 
   }
 
   // handleInteraction() {
@@ -33,9 +35,9 @@ class Game {
     };
   }// 
   removeLife() {
-    if(letter is wrong -){
-      remove a heart-
-    }
+    // if(letter is wrong -){
+    //   remove a heart-
+    // }
     
     $('#qwerty').on({
       'click': function(){

@@ -21,11 +21,12 @@ class Phrase {
 
     };
     checkLetter(letter) {
-        return this.phrase.length(letter);
-    }
+         return this.phrase.indexOf(letter) >= 0
+    };
+    
     showMatchedLetter(letter) {
         let alpha = $('#phrase li');
-        for(l=0; l < alpha.length; l++) {
+        for(let l=0; l < alpha.length; l++) {
           if(alpha[l].textContent.toLowerCase() == letter.toLowerCase())
             $(alpha[l]).removeClass('hide').addClass('show');
         }

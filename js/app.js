@@ -5,8 +5,6 @@ const game = new Game();
 
 
 
-game.getRandomPhrase().addPhraseToDisplay();
-
 document.getElementById('btn__reset').addEventListener('click', () => {
   game.startGame();
 });
