@@ -26,33 +26,25 @@ class Game {
 
 
   checkForWin() {
-    this.activePhrase.indexOf(); 
-     
-    
-    // if (this.missed === 5) {
-    //   return true;
-    // } else {
-    //   return false;
-    // };
-
+    return $('.hide.letter').length === 0
   }
   removeLife() {
-    let letter = this.activePhrase ;
-    if (letter.checkLetter(false)) {
-      $('.tries img[src=images/liveHeart.png]:first').attr('src', 'images/lostHeart.png');
-      console.log(event.target.text())
-      this.missed += 5;
-    };
+    $('.tries img[src="images/liveHeart.png"]:first').attr('src', 'images/lostHeart.png');
+    this.missed += 1;
+    if (this.missed === 5) {
+      this.gameOver(false);
+    }
   };
   gameOver(gameWon) {
     $('#overlay').show()
     if (gameWon) {
       $('#overlay').addClass('win').removeClass('lose')
-      $('#game-over-message').text('Cudos, You Got It!')
+      $('#game-over-message').text('Kudos, You Got It!')
     } else {
       $('#overlay').addClass('lose').removeClass('win')
       $('#game-over-message').text('Try again!')
     };
+    this.resetGame();
   }
 
   handleInteraction(button) {
@@ -69,4 +61,13 @@ class Game {
     }
   }
 
+  resetGame() {
+    // startGame($('#btn_reset'));
+    // this.missed === 0; 
+    // this.getRandomPhrase();
+    // $('.tries img[src="images/lostHeart.png"]:first').attr('src', 'images/liveHeart.png');
+    $('#phrase ul li').remove();
+    $('.key').removeClass('chosen').removeClass('wrong').removeAttr('disable');
+    $('.tries img[src="images/lostHeart.png"]').attr('src', 'images/liveHeart.png');
+  }
 };

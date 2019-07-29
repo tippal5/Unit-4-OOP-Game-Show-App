@@ -9,6 +9,11 @@ document.getElementById('btn__reset').addEventListener('click', () => {
   game.startGame();
 });
 
+$('.key').on('click', (e) => {
+  let button = e.target; 
+  game.handleInteraction(button);
+});
+
 
 
 // const logPhrase = (phrase) => {
