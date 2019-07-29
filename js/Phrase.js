@@ -7,7 +7,6 @@ class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     };
-
     addPhraseToDisplay() {
         const ul = $('#phrase ul');
         for (let n = 0; n < this.phrase.length; n++) {
@@ -18,20 +17,15 @@ class Phrase {
                 ul.append(`<li class="hide letter ${letter}">${letter}</li>`);
             }
         }
-
     };
     checkLetter(letter) {
-         return this.phrase.indexOf(letter) >= 0
+        return this.phrase.indexOf(letter) >= 0
     };
-    
     showMatchedLetter(letter) {
         let alpha = $('#phrase li');
-        for(let l=0; l < alpha.length; l++) {
-          if(alpha[l].textContent.toLowerCase() == letter.toLowerCase())
-            $(alpha[l]).removeClass('hide').addClass('show');
+        for (let l = 0; l < alpha.length; l++) {
+            if (alpha[l].textContent.toLowerCase() == letter.toLowerCase())
+                $(alpha[l]).removeClass('hide').addClass('show');
         }
-        
-        
     };
-
 };

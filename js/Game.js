@@ -14,7 +14,6 @@ class Game {
     ];
     this.activePhrase = null;
   };
-
   getRandomPhrase() {
     let randomIndex = Math.floor(Math.random() * this.phrases.length);
     return this.phrases[randomIndex];
@@ -22,36 +21,52 @@ class Game {
   startGame() {
     $('#overlay').hide();
     this.activePhrase = this.getRandomPhrase();
-    this.activePhrase.addPhraseToDisplay() 
+    this.activePhrase.addPhraseToDisplay();
   }
 
-  // handleInteraction() {
 
   checkForWin() {
-    if ($('#scoreboard') === 0) {
-      return true;
-    } else {
-      return false;
-    };
-  }// 
-  removeLife() {
-    // if(letter is wrong -){
-    //   remove a heart-
-    // }
+    this.activePhrase.indexOf(); 
+     
     
-    $('#qwerty').on({
-      'click': function(){
-          $('images/liveHeart.png').attr('src','images/lostHeart.png');
-      }
-      
-  });
-  }
-  gameOver(gameWon) {
-    if ($('#scoreboard') === 0) {
-      return false;
-    } else {
-      return true;
-    }
+    // if (this.missed === 5) {
+    //   return true;
+    // } else {
+    //   return false;
+    // };
 
+  }
+  removeLife() {
+    let letter = this.activePhrase ;
+    if (letter.checkLetter(false)) {
+      $('.tries img[src=images/liveHeart.png]:first').attr('src', 'images/lostHeart.png');
+      console.log(event.target.text())
+      this.missed += 5;
+    };
   };
+  gameOver(gameWon) {
+    $('#overlay').show()
+    if (gameWon) {
+      $('#overlay').addClass('win').removeClass('lose')
+      $('#game-over-message').text('Cudos, You Got It!')
+    } else {
+      $('#overlay').addClass('lose').removeClass('win')
+      $('#game-over-message').text('Try again!')
+    };
+  }
+
+  handleInteraction(button) {
+    $(button).attr("disabled", true);
+    if (!this.activePhrase.checkLetter($(button).text())) {
+      $(button).addClass("wrong");
+      this.removeLife();
+    } else {
+      $(button).addClass("chosen");
+      this.activePhrase.showMatchedLetter($(button).text());
+      if (this.checkForWin()) {
+        this.gameOver(true);
+      }
+    }
+  }
+
 };
