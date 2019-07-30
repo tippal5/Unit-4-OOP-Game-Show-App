@@ -67,7 +67,7 @@ class Game {
     // this.getRandomPhrase();
     // $('.tries img[src="images/lostHeart.png"]:first').attr('src', 'images/liveHeart.png');
     $('#phrase ul li').remove();
-    $('.key').removeClass('chosen').removeClass('wrong').removeAttr('disable');
+    $('.key').removeClass('chosen').removeClass('wrong').removeAttr('disabled');
     $('.tries img[src="images/lostHeart.png"]').attr('src', 'images/liveHeart.png');
   }
 };
